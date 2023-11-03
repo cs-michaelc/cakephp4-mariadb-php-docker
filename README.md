@@ -43,7 +43,7 @@ For example:
 
 ```bash
 	environment:
-	  	MYSQL_ROOT_PASSWORD: mysecretpassword
+	  	MYSQL_ROOT_PASSWORD: root
 	  	MYSQL_DATABASE: myapp
  ```
 
@@ -71,6 +71,9 @@ Note: myapp_db_1 is the name of the mariadb container once you build the dockerf
     'Datasources' => [
         'default' => [
             'host' => 'myapp_db_1',
+            'username' => 'root',
+            'password' => 'root',
+            'database' => 'myapp',
 ```
 
 5. **Build and Start Docker Containers:**
