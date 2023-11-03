@@ -27,14 +27,14 @@ While inside your fresh Cakephp4
 
 1. **Clone the Repository:**
 
-   ```bash
+```bash
    https://github.com/cs-michaelc/cakephp4-mariadb-php-docker
-   ```
+```
 Then move files to root your Cakephp4 root folder
 
-    ```bash
-    mv cakephp4-mariadb-php-docker/* ~/myapp/
-    ```
+ ```bash
+mv cakephp4-mariadb-php-docker/* ~/myapp/
+```
 2. **Modify MariaDB Configuration:**
 
 Open the docker-compose.yml file and locate the db service. Modify the MYSQL_ROOT_PASSWORD and MYSQL_DATABASE values to your preferred values. 
@@ -42,9 +42,9 @@ Open the docker-compose.yml file and locate the db service. Modify the MYSQL_ROO
 For example:
 
 ```bash
-	environment:
-	  	MYSQL_ROOT_PASSWORD: root
-	  	MYSQL_DATABASE: myapp
+environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: myapp
  ```
 
 3. **Change the base Setting in config/app.php:**
@@ -68,12 +68,12 @@ Open the config/app.php file in your CakePHP application. Update the 'host' valu
 Note: myapp_db_1 is the name of the mariadb container once you build the dockerfile and docker-compose file.
 
 ```bash
-    'Datasources' => [
-        'default' => [
-            'host' => 'myapp_db_1',
-            'username' => 'root',
-            'password' => 'root',
-            'database' => 'myapp',
+'Datasources' => [
+    'default' => [
+        'host' => 'myapp_db_1',
+        'username' => 'root',
+        'password' => 'root',
+        'database' => 'myapp',
 ```
 
 5. **Build and Start Docker Containers:**
@@ -90,15 +90,19 @@ Open your web browser and access the application at http://localhost.
 
 
 Run dockers ps -a to check if the containers are running
+```bash
 docker ps -a
+```
 
 ## Access Container 
 You may need to access the container for various tasks. Here's how to do it:
 
 1. To go inside the webapp container, run the following command:
+
 ```bash
 docker exec -it myapp_web_1 bash
 ```
+
 Once inside the container, you can run commands specific to the web application.
 
 To install additional packages, for example run the following commands inside the container:
