@@ -30,7 +30,11 @@ While inside your fresh Cakephp4
    ```bash
    https://github.com/cs-michaelc/cakephp4-mariadb-php-docker
    ```
+Then move files to root your Cakephp4 root folder
 
+    ```bash
+    mv cakephp4-mariadb-php-docker/* ~/myapp/
+    ```
 2. **Modify MariaDB Configuration:**
 
 Open the docker-compose.yml file and locate the db service. Modify the MYSQL_ROOT_PASSWORD and MYSQL_DATABASE values to your preferred values. 
