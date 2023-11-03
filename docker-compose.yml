@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - php-fpm
+    links:
+      - db
+      
+  php-fpm:
+    image: php:fpm
+    container_name: myapp_php
+    volumes:
+      - .:/var/www/html
+
+
+  db:
+    image: mariadb
+    volumes:
+      - myapp_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: myapp
+volumes:
+  myapp_data: # Declare the volume here
