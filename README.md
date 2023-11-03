@@ -28,7 +28,7 @@ While inside your fresh Cakephp4
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/cs-michaelc/cake4.git
+   https://github.com/cs-michaelc/cakephp4-mariadb-php-docker
    ```
 
 2. **Modify MariaDB Configuration:**
