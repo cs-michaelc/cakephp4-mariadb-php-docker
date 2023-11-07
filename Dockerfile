@@ -20,6 +20,15 @@ RUN a2enmod rewrite
 
 COPY apache2.conf /etc/apache2/apache2.conf
 
+# Copy the Apache security headers configuration file
+COPY security-headers.conf /etc/apache2/conf-available/security-headers.conf
+
+# Enable the security headers configuration
+RUN ln -s /etc/apache2/conf-available/security-headers.conf /etc/apache2/conf-enabled/
+
+# Enable the headers module
+RUN a2enmod headers
+
 # Set the working directory
 WORKDIR /var/www/html
 

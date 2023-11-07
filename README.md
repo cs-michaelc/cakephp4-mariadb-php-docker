@@ -119,7 +119,7 @@ docker exec -it myapp_db_1 bash
 
 Log in to the MariaDB server by running:
 ```bash
-mysql -u root -p
+mariadb -u root -p
 ```
 
 * Note that changes made to your codebase will be automatically synced with the Docker container instance.
