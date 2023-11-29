@@ -41,6 +41,7 @@ COPY webroot/.htaccess /var/www/html/webroot/.htaccess
 
 # Expose the port that Apache will listen on
 EXPOSE 80
+EXPOSE 443
 
 # Restart Apache to apply the changes
 RUN service apache2 restart

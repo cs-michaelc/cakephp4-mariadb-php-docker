@@ -6,6 +6,7 @@ services:
       - .:/var/www/html
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - php-fpm
     links:
@@ -16,8 +17,6 @@ services:
     container_name: myapp_php
     volumes:
       - .:/var/www/html
-
-
   db:
     image: mariadb
     volumes:
@@ -25,5 +24,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: myapp
+      MYSQL_INITDB_SKIP_TZINFO: "--max_connections=500"
+    command: --max_connections=500 # Set the maximum number of connections
+    healthcheck:
+      test: ["CMD", "mariadb", "-h", "localhost", "-u", "root", "-proot", "-e", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 volumes:
   myapp_data: # Declare the volume here
